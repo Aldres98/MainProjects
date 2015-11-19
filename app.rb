@@ -39,6 +39,11 @@ get '/visit' do
 	erb :visit
 end
 
+
+get '/showusers' do
+   erb "Hello World"
+end
+
 post '/visit' do
 	@username = params[:username]
 	@phonenumber = params[:phone]
@@ -74,6 +79,10 @@ db = get_db
 
 
 	erb "Okay, #{@username} you are going to visit us on #{@dateandtime}"
+
+get '/showusers' do
+   erb "Hello World"
+end
 
 end
 
