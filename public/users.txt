@@ -1,0 +1,61 @@
+Visitors name: Aldres
+Visitors phone number: 89036830484
+Time of visit : 12.08 12:00
+=====================
+Visitors name: 123
+Visitors phone number: 123
+Time of visit : 123
+=====================
+Visitors name: 123
+Visitors phone number: 123
+Time of visit : 123
+=====================
+Visitors name: Андрей
+Visitors phone number: 88005553535
+Time of visit : 19.10 15:30
+Selected barber: Jessie Pinkman
+=====================
+Visitors name: Андрей
+Visitors phone number: 88005553535
+Time of visit : 19.10 15:30
+Selected barber: Jessie Pinkman
+=====================
+Visitors name: 
+Visitors phone number: 
+Time of visit : 
+Selected barber: Bob Parsons
+=====================
+Visitors name: Андрей
+Visitors phone number: 89036830484
+Time of visit : 12.08 12:00
+Selected barber: Bob Parsons
+=====================
+Visitors name: Андрей
+Visitors phone number: 89036830484
+Time of visit : 12.08 12:00
+Selected barber: Bob Parsons
+=====================
+Visitors name: 
+Visitors phone number: 
+Time of visit : 
+Selected barber: Bob Parsons
+Color: #fbd75b
+=====================
+Visitors name: 123
+Visitors phone number: 123
+Time of visit : 123
+Selected barber: Bob Parsons
+Color: #7bd148
+=====================
+Visitors name: 
+Visitors phone number: 
+Time of visit : 
+Selected barber: Bob Parsons
+Color: #7bd148
+=====================
+Visitors name: b
+Visitors phone number: h
+Time of visit : 
+Selected barber: Bob Parsons
+Color: #7bd148
+=====================
