@@ -3,9 +3,16 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+
+def get_db
+    db = SQLite3::Database.new 'barbershop.db'
+    db.results_as_hash = true
+    return db
+end
+
 configure do
-    @db = SQLite3::Database.new 'barbershop.db'
-    @db.execute 'CREATE TABLE IF NOT EXISTS
+    db = get_db
+    db.execute 'CREATE TABLE IF NOT EXISTS
         "Users"
         (
             "id" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,6 +23,8 @@ configure do
             "color" TEXT
         )'
 end
+
+
 
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
@@ -41,38 +50,37 @@ post '/visit' do
 		:phone => 'Введите номер телефона', 
 		:datetime => 'Введите дату и время' }
 
-		# Для каждой пары ключ\значение
-
-	#	hh.each do |key, value|
-	#		if params[key] == ''
-	#			# Если параметр пуст, то присвоить еррору сообщение об ошибке из хеша
-	#			@error = hh[key]
-	#			return erb :visit
-	#		end
-
-	#		if params[key] != ''
-	#			return erb :visit
-	#		end
-
-	#	end
-
 		@error = hh.select {|key, _| params[key] == ""}.values.join(", ")
 
 		if @error != ''
 			return erb :visit
 		end
 
+db = get_db	
+    db.execute 'insert into
+        Users
+        (
+            username,
+            phone,
+            datestamp,
+            barber,
+            color
+        )
+        values (?, ?, ?, ?, ?)', [@username, @phonenumber, @dateandtime, @barber, @color]
 
-	f = File.open './public/users.txt', 'a'
-	f.write "Visitors name: #{@username}\n"
-	f.write "Visitors phone number: #{@phonenumber}\n"
-	f.write "Time of visit : #{@dateandtime}\n"
-	f.write "Selected barber: #{@barber}\n"
-	f.write "Color: #{@color}\n"
-	f.write "=====================\n"
-	f.close
+
+
+
+
+
 	erb "Okay, #{@username} you are going to visit us on #{@dateandtime}"
 
-
-
 end
+
+
+
+
+
+
+
+
