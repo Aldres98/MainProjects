@@ -21,10 +21,13 @@
   <div class="form-group">
   <label>Выберите парикмахера:</label>
   <select class="form-control" name="barber">
-  <option <%= @barber== 'Bob Parsons' ? 'Selected' : '' %>>Bob Parsons</option>
-  <option <%= @barber== 'Jessie Pinkman' ? 'Selected' : '' %>>Jessie Pinkman</option>
-  <option <%= @barber== 'Gus Fring' ? 'Selected' : '' %>>Gus Fring</option>
-</select>
+    <% @barber_list.each do |item| %>
+      <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
+    <% end %>
+  </select>
+<!--   <option <%= @barber== 'Bob Parsons' ? 'Selected' : '' %>>Bob Parsons</option>
+ <!  <option <%= @barber== 'Jessie Pinkman' ? 'Selected' : '' %>>Jessie Pinkman</option>
+  <option <%= @barber== 'Gus Fring' ? 'Selected' : '' %>>Gus Fring</option> --> 
   </div>
 
 <div class="form-group">
