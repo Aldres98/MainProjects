@@ -40,10 +40,6 @@ get '/visit' do
 end
 
 
-get '/showusers' do
-   erb "Hello World"
-end
-
 post '/visit' do
 	@username = params[:username]
 	@phonenumber = params[:phone]
@@ -72,19 +68,19 @@ db = get_db
             color
         )
         values (?, ?, ?, ?, ?)', [@username, @phonenumber, @dateandtime, @barber, @color]
+        erb "Okay, #{@username} you are going to visit us on #{@dateandtime}"
+
+end
 
 
 
-
-
-
-	erb "Okay, #{@username} you are going to visit us on #{@dateandtime}"
 
 get '/showusers' do
-   erb "Hello World"
+	db = get_db
+	@results = db.execute 'select * from Users order by id desc' 
+	erb :showusers
 end
 
-end
 
 
 
